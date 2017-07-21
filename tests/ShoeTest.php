@@ -5,7 +5,7 @@
     */
 
     require_once "src/Shoe.php";
-    // require_once "src/Store.php";
+    require_once "src/Store.php";
 
     $server = 'mysql:host=localhost:8889;dbname=shoe_store_test';
     $username = 'root';
@@ -17,6 +17,7 @@
         protected function tearDown()
         {
             Shoe::deleteAll();
+            // Store::deleteAll();
         }
         function testGetBrand()
         {

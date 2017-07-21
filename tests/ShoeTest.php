@@ -17,7 +17,7 @@
         protected function tearDown()
         {
             Shoe::deleteAll();
-            // Store::deleteAll();
+            Store::deleteAll();
         }
         function testGetBrand()
         {
@@ -126,11 +126,11 @@
             $test_brand->update($new_brand);
             $this->assertEquals("Sneaks", $test_brand->getBrand());
         }
-    }
+
     // function testAddStore()
     // {
-    //     $store = "New Seasons";
-    //     $test_store = new Store($name);
+    //     $store_name = "New Seasons";
+    //     $test_store = new Store($store_name);
     //     $test_store->save();
     //
     //     $brand = "ana tomic";
@@ -145,12 +145,12 @@
     //
     // function testGetStores()
     // {
-    //     $store = "Boblob";
-    //     $test_store = new Store($store);
+    //     $store_name = "Boblob";
+    //     $test_store = new Store($store_name);
     //     $test_store->save();
     //
-    //     $store2 = "Lora";
-    //     $test_store2 = new Store($store2);
+    //     $store_name2 = "Lora";
+    //     $test_store2 = new Store($store_name2);
     //     $test_store2->save();
     //
     //     $brand = "anatomy";
@@ -167,5 +167,5 @@
 
 
 
-
+}
 ?>

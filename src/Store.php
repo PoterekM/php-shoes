@@ -77,6 +77,32 @@ class Store
         return $found_store;
     }
 
+////new addition //// NOT WORKING
+    function addShoe($shoe)
+    {
+        $executed = $GLOBALS['DB']->exec("INSERT INTO shoes_stores (shoe_id, store_id) VALUES ({$shoe->getId()}, {$this->getId()});");
+        if ($executed) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function getShoes()
+    {
+        $returned_shoes = $GLOBALS['DB']->query("SELECT shoes.* FROM stores JOIN shoes_stores ON (shoes_stores.store_id = stores.id) JOIN shoes ON (shoes.id = shoes_stores.shoe_id) WHERE stores.id = {$this->getId()};");
+        $shoes = array();
+        foreach($returned_shoes as $shoe) {
+            $brand = $shoe['brand'];
+            $price = $shoe['price'];
+            $id = $shoe['id'];
+            $real_new_shoe = new Shoe($brand, $price, $id);
+            array_push($shoes, $real_new_shoe);
+        }
+        return $shoes;
+    }
+
+
 
 
 

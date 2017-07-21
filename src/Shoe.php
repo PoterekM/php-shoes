@@ -88,29 +88,31 @@ class Shoe
             return false;
         }
     }
-}
-// function addStore($store)
-// {
-//     $executed = $GLOBALS['DB']->exec("INSERT INTO shoes_stores (shoe_id, store_id) VALUES ({$this->getId()}, {$store->getId()});");
-//     if ($executed) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-//
-// function getStores()
-// {
-//     $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM shoes JOIN shoes_stores ON (shoes_stores.shoes_id = shoes.id) JOIN students ON (stores.id = shoes_stores.store_id) WHERE store.id = {$this->getId()};");
-//     $stores = array();
-//     foreach($returned_stores as $store) {
-//         $store = $store['store'];
-//         $id = $store['id'];
-//         $new_store = new Store($store, $id);
-//         array_push($stores, $new_store);
-//     }
-//     return $stores;
-// }
-// }
 
+    // function addStore($store_name)
+    // {
+    //     $executed = $GLOBALS['DB']->exec("INSERT INTO shoes_stores (shoe_id, store_id) VALUES ({$this->getId()}, {$store->getId()});");
+    //     if ($executed) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+    //
+    // function getStores()
+    // {
+    //     $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM shoes JOIN shoes_stores ON (shoes_stores.shoes_id = shoes.id) JOIN students ON (stores.id = shoes_stores.store_id) WHERE store.id = {$this->getId()};");
+    //     $stores = array();
+    //     foreach($returned_stores as $store) {
+    //         $store_name = $store['store'];
+    //         $id = $store['id'];
+    //         $new_store = new Store($store_name, $id);
+    //         array_push($stores, $new_store);
+    //     }
+    //     return $stores;
+    // }
+
+
+
+}
 ?>

@@ -16,7 +16,7 @@
     {
         protected function tearDown()
         {
-            // Shoe::deleteAll();
+            Shoe::deleteAll();
             Store::deleteAll();
         }
 
@@ -96,6 +96,44 @@
             $test_store_2->save();
             $result = Store::find($test_store->getId());
             $this->assertEquals($test_store, $result);
+        }
+
+/////new additon ///// not working
+        function testAddShoe()
+        {
+            $store = "Boblob";
+            $test_store = new Store($store);
+            $test_store->save();
+
+            $brand = "anatomy";
+            $price = "888";
+            $new_shoe = new Shoe($brand, $price);
+            $new_shoe->save();
+
+            $test_store->addShoe($new_shoe);
+
+            $this->assertEquals($test_store->getShoes(), [$test_shoe]);
+        }
+
+        function testGetShoes()
+        {
+            $store = "Boblob";
+            $test_store = new Store($store);
+            $test_store->save();
+
+            $brand = "Whatever";
+            $brand_2 = "Go Barefoot";
+            $price = "24";
+            $price_2 = "999";
+            $new_shoe = new Shoe($brand, $price);
+            $new_shoe->save();
+            $new_shoe_2 = new Shoe($brand_2, $price_2);
+            $new_shoe_2->save();
+
+            $test_store->addShoe($new_shoe);
+            $test_store->addShoe($new_shoe_2);
+
+            $this->assertEquals($test_store->getShoes(), [$new_shoe, $new_shoe_2]);
         }
 
 

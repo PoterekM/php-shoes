@@ -6,7 +6,7 @@
 
 ## Description
 
-_This project allows a hair salon to add hair stylists, view all stylists, as well as add and view clients for each stylist by clicking the stylist's name._
+_This project allows a user to input shoe stores as well as different types of stores. The user has the option to browse by shoes and see the store location or look through shoes a certain location carries._
 
 ## Setup/Installation Requirements
 
@@ -16,8 +16,8 @@ _**If you already have MAMP downloaded and installed:**_
 **open Terminal and navigate to desktop by typing `cd desktop`**
 
 
-* $ `git clone https://github.com/PoterekM/salon-version2.git`
-* $ `cd salon-version2`
+* $ `git clone https://github.com/PoterekM/php-shoes.git`
+* $ `cd php-shoes`
 * $ `composer install`
 
 
@@ -32,17 +32,20 @@ CREATING THE DATABASE
 
 **In your browser (recommended way)**
 * Navigate to `http://localhost:8888/phpmyadmin/`
-* Upload `hair_salon.sql.zip` (located within the repository)
-* If the tests are of interest to you, upload `hair_salon_test.squl.zip` as well.
+* Upload `shoe_store.sql.zip` (located within the repository)
+* If the tests are of interest to you, upload `shoe_store_test.squl.zip` as well.
 * when running the tests use the command $ ./vendor/bin/phpunit tests
 
 
 **OR TO GET THE DATABASE FROM TERMINAL**
 > /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot
-> CREATE DATABASE hair_salon;
-> USE hair_salon;
-> CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR(255), stylist_id INT);
-> CREATE TABLE (id serial PRIMARY KEY, stylist VARCHAR(255);
+> CREATE DATABASE shoe_store;
+> USE shoe_store;
+> CREATE TABLE shoes (id serial PRIMARY KEY, brand VARCHAR(30), price INT);
+> CREATE TABLE stores (id serial PRIMARY KEY, store VARCHAR(30));
+> CREATE TABLE shoes_stores (id serial PRIMARY KEY, shoe_id INT, store_id INT);
+
+
 ````
 
 _**If you need to download and Install MAMP:**_
@@ -80,7 +83,7 @@ _Thanks to Epicodus for providing some of the MAMP installation instructions at 
 _Please feel free to contact me directly via e-mail at poterekm@gmail.com if you have any questions, comments, ideas, or feedback. Also, I invite you to feel empowered to make any changes to this repository by forking it and making changes accordingly._
 
 ## Known Bugs
-* The program resubmits the last name entered and does not allow apostrophes.
+* The program does not eliminate duplicate entries.
 
 ### License
 

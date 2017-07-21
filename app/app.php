@@ -10,11 +10,16 @@
     $password = 'root';
     $DB = new PDO($server, $username, $password);
 
+    use Symfony\Component\Debug\Debug;
+    Debug::enable();
+
     $app = new Silex\Application();
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array(
         'twig.path' => __DIR__.'/../views'
     ));
+
+$app['debug'] = true;
 
     // use Symfony\Component\HttpFoundation\Request;
     // Request::enableHttpMethodParameterOverride();
@@ -22,5 +27,22 @@
     $app->get("/", function() use ($app) {
         return $app['twig']->render('index.html.twig', array('stores' => Store::getAll(), 'shoes' => Shoe::getAll()));
     });
+
+    $app->get("/stores", function() use ($app) {
+        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
+    });
+
+    $app->post("/stores", function() use ($app) {
+        $brand = $_POST['brand'];
+        $price = $_POST['price'];
+        $shoe = new Shoe($brand, $price);
+        $shoe->save();
+        return $app['twig']->render('stores.html.twig', array('stores' => $store));
+    });
+
+
+
+
+
     return $app;
 ?>

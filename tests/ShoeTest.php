@@ -130,6 +130,23 @@
             $this->assertEquals([], $result);
         }
 
+        function testFind()
+        {
+            $brand = "Grrrkiks";
+            $brand_2 = "MeowKicks";
+            $price = "24";
+            $price_2 = "34";
+            $test_shoe = new Shoe($brand, $price);
+            $test_shoe->save();
+            $test_shoe_2 = new Shoe($brand_2, $price_2);
+            $test_shoe_2->save();
+
+            $result = Shoe::find($test_shoe->getId());
+
+            $this->assertEquals($test_shoe, $result);
+        }
+
+
 
 
     }

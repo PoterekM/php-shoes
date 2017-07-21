@@ -29,7 +29,18 @@ $app['debug'] = true;
     });
 
     $app->get("/stores", function() use ($app) {
-        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
+        $locations = Store::getAll();
+        $location_check = array();
+
+        foreach ($locations as $location) {
+            if ($location->getStore() !== $_GET['store']) {
+                array_push($location_check, $location);
+            } else {
+                alert("Thist store has already been entered!");
+            }
+        }
+
+        return $app['twig']->render('stores.html.twig', array('stores' => $location_check));
     });
 
     $app->post("/stores", function() use ($app) {

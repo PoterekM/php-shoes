@@ -6,7 +6,7 @@
     */
 
     require_once "src/Shoe.php";
-    // require_once "src/Store.php";
+    require_once "src/Store.php";
 
 
     $server = 'mysql:host=localhost:8889;dbname=shoe_store_test';
@@ -160,8 +160,45 @@
             $this->assertEquals("Sneaks", $test_brand->getBrand());
         }
 
+        // function testAddStore()
+        // {
+        //     $store = "New Seasons";
+        //     $test_store = new Store($name);
+        //     $test_store->save();
+        //
+        //     $brand = "ana tomic";
+        //     $price = "88";
+        //     $test_brand = new Shoe($brand, $price);
+        //     $test_brand->save();
+        //
+        //     $test_brand->addStore($test_store);
+        //
+        //     $this->assertEquals($test_brand->getStores(), [$test_store]);
+        // }
+        //
+        // function testGetStores()
+        // {
+        //     $store = "Boblob";
+        //     $test_store = new Store($store);
+        //     $test_store->save();
+        //
+        //     $store2 = "Lora";
+        //     $test_store2 = new Store($store2);
+        //     $test_store2->save();
+        //
+        //     $brand = "anatomy";
+        //     $price = "888";
+        //     $test_brand = new Shoe($brand, $price);
+        //     $test_brand->save();
+        //
+        //     $test_brand->addStore($test_store);
+        //     $test_brand->addStore($test_store2);
+        //
+        //     $this->assertEquals($test_brand->getStores(), [$test_store, $test_store2]);
+        // }
+
 
 
 
     }
-?>
+    ?>

@@ -105,14 +105,14 @@
             $test_store = new Store($store);
             $test_store->save();
 
-            $brand = "anatomy";
+            $brand = "ana tomic";
             $price = "888";
-            $new_shoe = new Shoe($brand, $price);
-            $new_shoe->save();
+            $test_brand = new Shoe($brand, $price);
+            $test_brand->save();
 
-            $test_store->addShoe($new_shoe);
+            $test_store->addShoe($test_brand);
 
-            $this->assertEquals($test_store->getShoes(), [$test_shoe]);
+            $this->assertEquals($test_store->getShoes(), [$test_brand]);
         }
 
         function testGetShoes()
@@ -125,15 +125,15 @@
             $brand_2 = "Go Barefoot";
             $price = "24";
             $price_2 = "999";
-            $new_shoe = new Shoe($brand, $price);
-            $new_shoe->save();
-            $new_shoe_2 = new Shoe($brand_2, $price_2);
-            $new_shoe_2->save();
+            $test_brand = new Shoe($brand, $price);
+            $test_brand->save();
+            $test_brand_2 = new Shoe($brand_2, $price_2);
+            $test_brand_2->save();
 
-            $test_store->addShoe($new_shoe);
-            $test_store->addShoe($new_shoe_2);
+            $test_store->addShoe($test_brand);
+            $test_store->addShoe($test_brand_2);
 
-            $this->assertEquals($test_store->getShoes(), [$new_shoe, $new_shoe_2]);
+            $this->assertEquals($test_store->getShoes(), [$test_brand, $test_brand_2]);
         }
 
 

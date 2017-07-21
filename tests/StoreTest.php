@@ -59,6 +59,22 @@
             $this->assertTrue($executed, "Store not successfully saved to database");
         }
 
+        function testGetAll()
+        {
+            $store = "Yippie";
+            $store_2 = "Yuppie";
+            $test_store = new Store($store);
+            $test_store->save();
+            $test_store_2 = new Store($store_2);
+            $test_store_2->save();
+
+            $result = Store::getAll();
+
+            $this->assertEquals([$test_store, $test_store_2], $result);
+        }
+
+
+
 
     }
 ?>

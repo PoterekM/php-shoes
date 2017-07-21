@@ -28,19 +28,33 @@ class Store
     }
 
     function save()
-        {
-            $executed = $GLOBALS['DB']->exec("INSERT INTO stores (store) VALUES ('{$this->getStore()}')");
-            if ($executed) {
-                $this->id = $GLOBALS['DB']->lastInsertId();
-                return true;
-            } else {
-                return false;
-            }
+    {
+        $executed = $GLOBALS['DB']->exec("INSERT INTO stores (store) VALUES ('{$this->getStore()}')");
+        if ($executed) {
+            $this->id = $GLOBALS['DB']->lastInsertId();
+            return true;
+        } else {
+            return false;
         }
+    }
+
+    static function getAll()
+    {
+        // $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores;");
+        // $stores = array();
+        // foreach($returned_stores as $store) {
+        //     $store_name = $store['store'];
+        //     $id = $store['id'];
+        //     $new_store = new Store($store_name, $id);
+        //     array_push($stores, $new_store);
+        // }
+        // return $stores;
+    }
 
 
 
 
-        
+
+
 }
 ?>

@@ -14,7 +14,10 @@
             <p>Stores participating in our program:</p>
             <ul>
                 {% for store in stores %}
-                    <li><a href="store/{{ store.getId }}"></a></li>
+                    <li><a href="store/{{ store.getId }}">{{ store.getStore }}</a></li>
+
+
+
                 {% endfor %}
             </ul>
             {% else %}

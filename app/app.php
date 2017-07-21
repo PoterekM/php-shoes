@@ -33,15 +33,20 @@ $app['debug'] = true;
     });
 
     $app->post("/stores", function() use ($app) {
-        $brand = $_POST['brand'];
-        $price = $_POST['price'];
-        $shoe = new Shoe($brand, $price);
-        $shoe->save();
-        return $app['twig']->render('stores.html.twig', array('stores' => $store));
+        $location = $_POST['store'];
+        $store = new Store($location);
+        $store->save();
+        return $app['twig']->render('stores.html.twig', array('stores' => $location, 'stores' => Store::getAll()));
     });
 
 
-
+    // $app->post("/stores", function() use ($app) {
+    //     $brand = $_POST['brand'];
+    //     $price = $_POST['price'];
+    //     $shoe = new Shoe($brand, $price);
+    //     $shoe->save();
+    //     return $app['twig']->render('stores.html.twig', array('stores' => $store));
+    // });
 
 
     return $app;

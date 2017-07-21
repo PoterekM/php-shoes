@@ -1,31 +1,89 @@
-As a user, I want to be able to add, update, delete and list shoe stores.
+# _Shoe Store_
+
+#### _Databases Extended: Week 4 Independent Project, July 21, 2017_
+
+#### By **Michelle Poterek**
+
+## Description
+
+_This project allows a hair salon to add hair stylists, view all stylists, as well as add and view clients for each stylist by clicking the stylist's name._
+
+## Setup/Installation Requirements
+
+_**If you already have MAMP downloaded and installed:**_
+
+````
+**open Terminal and navigate to desktop by typing `cd desktop`**
 
 
-As a user, I want to be able to add and list new shoe brands. Shoe brands should include price point (for example: set values of low, middle, or high... or prices per shoe (if the store carries one model per brand)).
+* $ `git clone https://github.com/PoterekM/salon-version2.git`
+* $ `cd salon-version2`
+* $ `composer install`
 
 
-As a user, I want to be able to add shoe brands in the application (don't worry about integrating functionality to update or destroy individual shoe brands).
+**In MAMP**
+* Select the Start Servers
+* Go to preferences>web server and click on the folder icon next to 'document root'
+* Click on 'web' folder of project and hit 'select'
+* Hit ok at the bottom of the preferences window
 
 
-As a user, I want to be able to add existing shoe brands to a store to show where they are sold.
+CREATING THE DATABASE
+
+**In your browser (recommended way)**
+* Navigate to `http://localhost:8888/phpmyadmin/`
+* Upload `hair_salon.sql.zip` (located within the repository)
+* If the tests are of interest to you, upload `hair_salon_test.squl.zip` as well.
+* when running the tests use the command $ ./vendor/bin/phpunit tests
 
 
-As a user, I want to be able to associate the same brand of shoes with multiple stores.
+**OR TO GET THE DATABASE FROM TERMINAL**
+> /Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot
+> CREATE DATABASE hair_salon;
+> USE hair_salon;
+> CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR(255), stylist_id INT);
+> CREATE TABLE (id serial PRIMARY KEY, stylist VARCHAR(255);
+````
+
+_**If you need to download and Install MAMP:**_
+````
+* If you do not have Composer here is a link to their website https://getcomposer.org/download/
+* If you do not have MAMP please download from their website https://www.mamp.info/en/downloads/
 
 
-As a user, I want to be able to see all of the brands a store sells on the individual store page.
 
+* Launch your newly-installed MAMP program.
+* When MAMP launches you will be greeted by a small window with several options. Click Preferences.
+* In the Preferences window, select the Ports tab.
+* Set the Apache Port to 8888.
+* Set the MySQL Port to 8889.
+* Click OK to save your new port configurations.
 
-As a user, I want store names and shoe brands to be saved with a capital letter no matter how I enter them.
+````
 
+## Technologies Used
 
-As a user, I want the price to be in currency format even if I just inputted a number. (In other words, typing in '50' should be updated to '$50.00'.)
+* PHP
+* Composer
+* Twig
+* Silex
+* CSS
+* Bootstrap
+* SQL
+* Apache
+* MAMP
 
+### Acknowledgements
+_Thanks to Epicodus for providing some of the MAMP installation instructions at learnhowtoprogram.com_
 
-As a user, I do not want stores and/or shoe brands to be saved if I enter a blank name.
+## Support and contact details
+_Please feel free to contact me directly via e-mail at poterekm@gmail.com if you have any questions, comments, ideas, or feedback. Also, I invite you to feel empowered to make any changes to this repository by forking it and making changes accordingly._
 
+## Known Bugs
+* The program resubmits the last name entered and does not allow apostrophes.
 
-As a user, I want all stores and brands to be unique. There shouldn't be two entries in the database for 'Blundstone', or 'Adidas'.
+### License
 
+*This project is under the MIT License*
 
-As a user, I want store and brand names to have a maximum of thirty characters.
+Copyright (c) 2017 **Michelle Poterek**

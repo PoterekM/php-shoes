@@ -146,6 +146,20 @@
             $this->assertEquals($test_shoe, $result);
         }
 
+        function testUpdate()
+        {
+            $brand = "Gym";
+            $price = "101";
+            $test_brand = new Shoe($brand, $price);
+            $test_brand->save();
+
+            $new_brand = "Sneaks";
+
+            $test_brand->update($new_brand);
+
+            $this->assertEquals("Sneaks", $test_brand->getBrand());
+        }
+
 
 
 

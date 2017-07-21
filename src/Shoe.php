@@ -89,6 +89,17 @@ class Shoe
         return $found_shoe;
     }
 
+    function update($new_brand)
+    {
+        $executed = $GLOBALS['DB']->exec("UPDATE shoes SET brand = '{$new_brand}' WHERE id = {$this->getId()};");
+        if ($executed) {
+            $this->setBrand($new_brand);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }
 ?>

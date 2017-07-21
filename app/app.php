@@ -4,7 +4,6 @@
     require_once __DIR__."/../src/Shoe.php";
     require_once __DIR__."/../src/Store.php";
 
-
     $server = 'mysql:host=localhost:8889;dbname=shoe_store';
     $username = 'root';
     $password = 'root';
@@ -19,7 +18,7 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
-$app['debug'] = true;
+    $app['debug'] = true;
 
     // use Symfony\Component\HttpFoundation\Request;
     // Request::enableHttpMethodParameterOverride();

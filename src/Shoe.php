@@ -4,32 +4,39 @@ class Shoe
     private $brand;
     private $price;
     private $id;
+
     function __construct($brand, $price, $id = null)
     {
         $this->brand = $brand;
         $this->price = $price;
         $this->id = $id;
     }
+
     function getBrand()
     {
         return $this->brand;
     }
+
     function setBrand($new_brand)
     {
         $this->brand = (string) $new_brand;
     }
+
     function getPrice()
     {
         return $this->price;
     }
+
     function setPrice($new_price)
     {
         $this->price = (string) $new_price;
     }
+
     function getId()
     {
         return $this->id;
     }
+
     function save()
     {
         $executed = $GLOBALS['DB']->exec("INSERT INTO shoes (brand, price) VALUES ('{$this->getBrand()}', '{$this->getPrice()}')");
@@ -40,6 +47,7 @@ class Shoe
             return false;
         }
     }
+
     static function getAll()
     {
         $returned_shoes = $GLOBALS['DB']->query("SELECT * FROM shoes;");
@@ -62,6 +70,7 @@ class Shoe
             return false;
         }
     }
+
     static function find($search_id)
     {
         $found_shoe = null;
@@ -78,6 +87,7 @@ class Shoe
         }
         return $found_shoe;
     }
+
     function update($new_brand)
     {
         $executed = $GLOBALS['DB']->exec("UPDATE shoes SET brand = '{$new_brand}' WHERE id = {$this->getId()};");
@@ -88,7 +98,6 @@ class Shoe
             return false;
         }
     }
-
 
     function addStore($store)
     {
@@ -121,7 +130,6 @@ class Shoe
             return $input;
         }
     }
-
 
 }
 ?>

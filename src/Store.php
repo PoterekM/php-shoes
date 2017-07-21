@@ -77,7 +77,6 @@ class Store
         return $found_store;
     }
 
-////new addition //// NOT WORKING
     function addShoe($shoe)
     {
         $executed = $GLOBALS['DB']->exec("INSERT INTO shoes_stores (shoe_id, store_id) VALUES ({$shoe->getId()}, {$this->getId()});");

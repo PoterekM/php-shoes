@@ -98,7 +98,6 @@
             $this->assertEquals($test_store, $result);
         }
 
-/////new additon ///// not working
         function testAddShoe()
         {
             $store = "Boblob";

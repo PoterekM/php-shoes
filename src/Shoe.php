@@ -48,6 +48,29 @@ class Shoe
         }
     }
 
+    static function getAll()
+    {
+        $returned_shoes = $GLOBALS['DB']->query("SELECT * FROM shoes;");
+        $shoes = array();
+        foreach($returned_shoes as $shoe) {
+            $brand = $shoe['brand'];
+            $price = $shoe['price'];
+            $id = $shoe['id'];
+            $new_shoe= new Shoe($brand, $price, $id);
+            array_push($shoes, $new_shoe);
+        }
+        return $shoes;
+    }
+
+    static function deleteAll()
+    {
+        $executed = $GLOBALS['DB']->exec("DELETE FROM shoes;");
+        if ($executed) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 }
 ?>

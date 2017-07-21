@@ -128,7 +128,6 @@
         }
 
 
-/////newwwwwwww
     function testAddStore()
     {
         $store = "New Seasons";

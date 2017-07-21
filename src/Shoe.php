@@ -90,7 +90,6 @@ class Shoe
     }
 
 
-/////new
     function addStore($store)
     {
         $executed = $GLOBALS['DB']->exec("INSERT INTO shoes_stores (shoe_id, store_id) VALUES ({$this->getId()}, {$store->getId()});");
@@ -100,21 +99,6 @@ class Shoe
             return false;
         }
     }
-    //
-    // function getStores()
-    // {
-    //     $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM shoes JOIN shoes_stores ON (shoes_stores.shoe_id = shoes.id) JOIN stores ON (stores.id = shoes_stores.store_id) WHERE stores.id = {$this->getId()};");
-    //     $stores = array();
-    //     foreach($returned_stores as $store) {
-    //         $store_name = $store['store'];
-    //         $id = $store['id'];
-    //         $new_store = new Store($store_name, $id);
-    //         array_push($stores, $new_store);
-    //     }
-    //     return $stores;
-    // }
-
-
 
     function getStores()
     {
@@ -129,11 +113,14 @@ class Shoe
         return $stores;
     }
 
-
-
-
-
-
+    function existingInputBrand($input, $existing_input)
+    {
+        if ($input == $existing_input) {
+            return "You already entered this";
+        } else {
+            return $input;
+        }
+    }
 
 
 }

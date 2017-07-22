@@ -38,6 +38,10 @@
         return $app['twig']->render('stores.html.twig', array('stores' => $location, 'stores' => Store::getAll()));
     });
 
+    $app->get("/stores_empty", function() use ($app) {
+        Store::deleteAll();
+        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
+    });
 
     // $app->post("/stores", function() use ($app) {
     //     $brand = $_POST['brand'];

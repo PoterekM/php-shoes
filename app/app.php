@@ -54,7 +54,7 @@
         $store = Store::find($_POST['store_id']);
         $shoe = Shoe::find($_POST['shoe_id']);
         $store->addShoe($shoe);
-        return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'shoes' => $store->getBrands(), 'all_shoes' => Shoes::getAll()));
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'stores' => Store::getAll(), 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
     });
 
     // $app->post("/add_shoes", function() use ($app) {

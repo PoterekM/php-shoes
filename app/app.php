@@ -23,10 +23,12 @@
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
+//
     $app->get("/", function() use ($app) {
         return $app['twig']->render('index.html.twig', array('stores' => Store::getAll(), 'shoes' => Shoe::getAll()));
     });
 
+//
     $app->get("/stores", function() use ($app) {
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
@@ -35,7 +37,7 @@
         $location = $_POST['store'];
         $store = new Store($location);
         $store->save();
-        return $app['twig']->render('stores.html.twig', array('stores' => $location, 'stores' => Store::getAll()));
+        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
 
     $app->get("/stores_empty", function() use ($app) {
@@ -46,13 +48,13 @@
 
     $app->get("store/{id}", function($id) use ($app) {
         $store = Store::find($id);
-        return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'shoes' => Shoe::getAll()));
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'shoes' => $store->getShoes(), 'stores' => Store::getAll(), 'all_shoes' => Shoe::getAll()));
     });
 
-    $app->patch("/store/{id}", function ($id) use ($app) {
-        $store = Store::find($id);
-        return $app['twig']->render('store.html.twig', array('store' => $store, 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
-    });
+    // $app->patch("/store/{id}", function ($id) use ($app) {
+    //     $store = Store::find($id);
+    //     return $app['twig']->render('store.html.twig', array('store' => $store, 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
+    // });
 
     $app->post("/add_shoes", function() use ($app) {
         $store = Store::find($_POST['store_id']);

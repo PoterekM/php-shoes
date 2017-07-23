@@ -61,6 +61,15 @@
         return $app['twig']->render('shoes.html.twig', array('shoes' => Shoe::getAll()));
     });
 
+    $app->post("/shoes", function() use ($app) {
+        $brand = $_POST['brand'];
+        $price = $_POST['price'];
+        $shoe = new Shoe($brand, $price);
+        $shoe->save();
+        return $app['twig']->render('shoes.html.twig', array('shoes' => Shoe::getAll(), 'shoe' => $brand));
+    });
+
+
 
     // $app->post("store/{id}", function() use ($app) {
     //     $store = $_POST['store'];

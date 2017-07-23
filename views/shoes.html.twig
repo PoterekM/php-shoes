@@ -10,7 +10,31 @@
         <h3>Soles by Shoe</h3>
       </div>
 
-      <p>Dis where the shoes live</p>
+
+      {% if shoes is not empty %}
+        <p>Shoes at this location:</p>
+        <ul>
+          {% for shoe in shoes %}
+            <li><a href="shoe/{{ shoe.getId }}">{{ shoe.getBrand }}</a></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>There aren't any shoes yet! Maybe we need to target the Tupperware Party type of crowd...</p>
+      {% endif %}
+      <div class="well">
+
+        <form action="/shoes" method="post">
+          <label for="brand">Please enter the shoe you that is your sole mate:</label>
+          <input type="text" name="brand">
+          <label for="price">Please enter the shoe price:</label>
+          <input type="text" name="price">
+
+          <button type="submit" name="btn btn-success">SOLE FOUND</button>
+
+        </form>
+
+
+        <a href="/shoe_empty">remove all of your shoes</a>
 
       </div>
       <h6><a href="/">return home</a></h6>

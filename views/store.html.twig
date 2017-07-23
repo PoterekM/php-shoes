@@ -29,7 +29,7 @@
           <input id="store_id" type="hidden" name="store_id" value="{{ store.getId }}">
           <label for="shoe_id">Add a shoe:</label>
           <select id="shoe_id" name="shoe_id" type="text">
-          {% for shoe in all_shoes %}
+          {% for shoe in shoes %}
               <option value="{{ shoe.getId }}"> {{ shoe.getBrand }} </option>
           {% endfor %}
             </select>

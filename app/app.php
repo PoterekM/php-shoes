@@ -42,12 +42,16 @@
         Store::deleteAll();
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
-
     ///not sure if get is appropriate here in the stores empty
 
     $app->get("store/{id}", function($id) use ($app) {
         $store = Store::find($id);
-        return $app['twig']->render('store.html.twig', array('store' => $store, 'shoes' => $store->getShoes(), 'stores' => Store::getAll(), 'all_shoes' => Shoe::getAll()));
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'shoes' => Shoe::getAll()));
+    });
+
+    $app->patch("/store/{id}", function ($id) use ($app) {
+        $store = Store::find($id);
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
     });
 
     $app->post("/add_shoes", function() use ($app) {
@@ -57,6 +61,7 @@
         return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
     });
 
+// doin the shoes thang
     $app->get("/shoes", function() use ($app) {
         return $app['twig']->render('shoes.html.twig', array('shoes' => Shoe::getAll()));
     });
@@ -69,6 +74,11 @@
         return $app['twig']->render('shoes.html.twig', array('shoes' => Shoe::getAll(), 'shoe' => $shoe));
     });
 
+
+    $app->get("/remove_shoes", function() use ($app) {
+        Shoe::deleteAll();
+        return $app['twig']->render('shoes.html.twig', array('shoes' => Shoe::getAll()));
+    });
 
 
     // $app->post("store/{id}", function() use ($app) {

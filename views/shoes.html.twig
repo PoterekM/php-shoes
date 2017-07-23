@@ -12,7 +12,7 @@
 
 
       {% if shoes is not empty %}
-        <p>Shoes at this location:</p>
+        <p>Shoes in our system:</p>
         <ul>
           {% for shoe in shoes %}
             <li><a href="shoe/{{ shoe.getId }}">{{ shoe.getBrand }}</a></li>
@@ -24,7 +24,7 @@
       <div class="well">
 
         <form action="/shoes" method="post">
-          <label for="brand">Please enter the shoe you that is your sole mate:</label>
+          <label for="brand">Please enter your favorite shoe:</label>
           <input type="text" name="brand">
           <label for="price">Please enter the shoe price:</label>
           <input type="text" name="price">
@@ -34,7 +34,7 @@
         </form>
 
 
-        <a href="/shoe_empty">remove all of your shoes</a>
+        <a href="/remove_shoes">remove all of your shoes</a>
 
       </div>
       <h6><a href="/">return home</a></h6>

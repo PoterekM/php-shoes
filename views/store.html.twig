@@ -15,9 +15,9 @@
       <p>Here are the brands we have:</p>
       {% for shoe in shoes %}
       <ul>
-          <li>{{ shoe.getBrand }}</li>
-          {% endfor %}
+          <li>{{ shoe.getBrand }} || $ {{ shoe.getPrice }}</li>
       </ul>
+          {% endfor %}
       {% else %}
         <p>There aren't any shoes yet! Maybe we need to target the Tupperware Party type of crowd...</p>
       {% endif %}

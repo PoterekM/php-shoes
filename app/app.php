@@ -57,12 +57,9 @@
         return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'stores' => Store::getAll(), 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
     });
 
-    // $app->post("/add_shoes", function() use ($app) {
-    //        $store = Store::find($_POST['store_id']);
-    //        $shoe = Shoe::find($_POST['shoe_id']);
-    //        $store->addShoe($shoe);
-    //        return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
-    //    });
+    $app->get("/shoes", function() use ($app) {
+        return $app['twig']->render('shoes.html.twig', array('shoes' => Shoe::getAll()));
+    });
 
 
     // $app->post("store/{id}", function() use ($app) {

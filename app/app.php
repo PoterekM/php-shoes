@@ -20,8 +20,8 @@
 
     $app['debug'] = true;
 
-    // use Symfony\Component\HttpFoundation\Request;
-    // Request::enableHttpMethodParameterOverride();
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
 
     $app->get("/", function() use ($app) {
         return $app['twig']->render('index.html.twig', array('stores' => Store::getAll(), 'shoes' => Shoe::getAll()));
@@ -42,6 +42,37 @@
         Store::deleteAll();
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
+
+    ///not sure if get is appropriate here in the stores empty
+
+    $app->get("store/{id}", function($id) use ($app) {
+        $store = Store::find($id);
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'shoes' => $store->getShoes(), 'stores' => Store::getAll(), 'all_shoes' => Shoe::getAll()));
+    });
+
+    $app->post("/add_shoes", function() use ($app) {
+        $store = Store::find($_POST['store_id']);
+        $shoe = Shoe::find($_POST['shoe_id']);
+        $store->addShoe($shoe);
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'shoes' => $store->getBrands(), 'all_shoes' => Shoes::getAll()));
+    });
+
+    // $app->post("/add_shoes", function() use ($app) {
+    //        $store = Store::find($_POST['store_id']);
+    //        $shoe = Shoe::find($_POST['shoe_id']);
+    //        $store->addShoe($shoe);
+    //        return $app['twig']->render('store.html.twig', array('store' => $store, 'stores' => Store::getAll(), 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
+    //    });
+
+
+    // $app->post("store/{id}", function() use ($app) {
+    //     $store = $_POST['store'];
+    //     return $app['twig']->render('store.html.twig', array('stores' => Store::getAll(), 'store' => $store));
+    // });
+
+    // $app->post("/add_shoe")
+
+
 
     // $app->post("/stores", function() use ($app) {
     //     $brand = $_POST['brand'];

@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <title>Sole Mate Finder</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Sole Seeker</h1>
+        <h3> {{ store.getStore }}</h3>
+      </div>
+
+
+      {% if shoes is not empty %}
+      <p>Here are the brands we have:</p>
+      {% for shoe in shoes %}
+      <ul>
+          <li>{{ shoe.getBrand }}</li>
+      </ul>
+      {% endfor %}
+      {% endif %}
+
+
+
+
+      <form action="add_shoes" method="post">
+          <input id="store_id" type="hidden" name="store_id" value="{{ store.getId }}">
+          <label for="shoe_id">Add a shoe:</label>
+          <input type="text" name="shoe_id">
+          <button type="submit">Submit!</button>
+      </form>
+
+
+    </div>
+  </body>
+</html>

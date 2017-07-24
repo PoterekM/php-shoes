@@ -135,6 +135,16 @@
             $this->assertEquals($test_store->getShoes(), [$test_brand, $test_brand_2]);
         }
 
+        function testUpdate()
+       {
+           $store = "Yesss";
+           $test_store = new Store($store);
+           $test_store->save();
+           $new_name = "Nooo";
+           $test_store->update($new_name);
+           $this->assertEquals("Nooo", $test_store->getStore());
+       }
+
 
 
 

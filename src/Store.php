@@ -101,6 +101,16 @@ class Store
         return $shoes;
     }
 
+    function update($new_store)
+    {
+        $executed = $GLOBALS['DB']->exec("UPDATE stores SET store = '{$new_store}' WHERE id = {$this->getId()};");
+        if ($executed) {
+            $this->setStore($new_store);
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
 

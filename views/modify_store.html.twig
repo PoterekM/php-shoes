@@ -7,6 +7,13 @@
         <div class="container">
             <div class="jumbotron">
 
+                <form action="/store/{{ store.getId }}" method="post">
+                    <input type="hidden" name="_method" value="patch">
+                    <label for="location">New Store Name:</label>
+                    <input type="text" name="location">
+                    <button type="submit">Save</button>
+                </form>
+
             </div>
         </div>
     </body>

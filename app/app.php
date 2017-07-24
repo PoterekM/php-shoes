@@ -52,15 +52,15 @@
     });
 
     $app->patch("/store/{id}", function ($id) use ($app) {
+        // $location = $_POST['store'];
         $store = Store::find($id);
+        $store->update($store);
         return $app['twig']->render('store.html.twig', array('store' => $store, 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
     });
 
     $app->get("store/{id}/modify", function($id) use ($app) {
-        $location = $_POST['store'];
         $store = Store::find($id);
-
-        return $app['twig']->render('store.html.twig', array('store' => $location, 'shoes'-> $store->getShoes(), 'all_shoes' => Shoe::getAll()));
+        return $app['twig']->render('modify_store.html.twig', array('store' => $store, 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
     });
 
     $app->post("/add_shoes", function() use ($app) {

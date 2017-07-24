@@ -112,6 +112,21 @@ class Store
         }
     }
 
+    function delete()
+    {
+        $executed = $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
+        if (!$executed) {
+            return false;
+        }
+        $GLOBALS['DB']->exec("DELETE FROM shoes_stores WHERE store_id = {$this->getId()};");
+        if (!$executed) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+
 
 
 

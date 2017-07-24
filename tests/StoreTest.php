@@ -145,6 +145,23 @@
            $this->assertEquals("Nooo", $test_store->getStore());
        }
 
+       function testDelete()
+       {
+           $store = "yako";
+           $test_store = new Store($store);
+           $test_store->save();
+
+           $brand = "Wacko";
+           $price = "Billionz";
+           $test_brand = new Shoe($brand, $price);
+           $test_brand->save();
+
+           $test_store->addShoe($test_brand);
+           $test_store->delete();
+
+           $this->assertEquals([], $test_store->getShoes());
+       }
+
 
 
 

@@ -161,9 +161,5 @@
 
            $this->assertEquals([], $test_store->getShoes());
        }
-
-
-
-
     }
 ?>

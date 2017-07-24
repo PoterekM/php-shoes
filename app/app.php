@@ -23,11 +23,9 @@
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
-
     $app->get("/", function() use ($app) {
         return $app['twig']->render('index.html.twig', array('stores' => Store::getAll(), 'shoes' => Shoe::getAll()));
     });
-
 
     $app->get("/stores", function() use ($app) {
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
@@ -44,7 +42,6 @@
         Store::deleteAll();
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
     });
-
 
     $app->get("store/{id}", function($id) use ($app) {
         $store = Store::find($id);
@@ -89,7 +86,6 @@
         return $app['twig']->render('shoes.html.twig', array('shoes' => Shoe::getAll(), 'shoe' => $shoe));
     });
 
-
     $app->get("/remove_shoes", function() use ($app) {
         Shoe::deleteAll();
         return $app['twig']->render('shoes.html.twig', array('shoes' => Shoe::getAll()));
@@ -106,8 +102,6 @@
         $shoe->addStore($store);
         return $app['twig']->render('shoe.html.twig', array('shoe' => $shoe, 'shoes' => Shoe::getAll(), 'stores' => $shoe->getStores(), 'all_stores' => Store::getAll()));
     });
-
-
 
     return $app;
 ?>

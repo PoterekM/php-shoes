@@ -22,9 +22,6 @@
         <p>There aren't any shoes yet! Maybe we need to target the Tupperware Party type of crowd...</p>
       {% endif %}
 
-
-
-
       <form action="/add_shoes" method="post">
           <input id="store_id" type="hidden" name="store_id" value="{{ store.getId }}">
           <label for="shoe_id">Add a shoe:</label>
@@ -39,6 +36,11 @@
 
       <a href="/store/{{ store.getId }}/modify">Update {{ store.getStore }}</a>
 
+      <div class="well">
+          <a href="/">Home</a> |||
+          <a href="/stores">Go to Stores</a> |||
+          <a href="/shoes">Go to shoes</a>
+      </div>
 
 
     </div>

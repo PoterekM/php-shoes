@@ -10,7 +10,6 @@ class Store
         $this->id = $id;
     }
 
-
     function getStore()
     {
         return $this->store;
@@ -125,11 +124,6 @@ class Store
             return true;
         }
     }
-    
-
-
-
-
 
 }
 ?>

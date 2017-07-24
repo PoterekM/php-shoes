@@ -12,37 +12,34 @@
 
 
       {% if shoes is not empty %}
-      <p>Here are the brands we have:</p>
-      {% for shoe in shoes %}
-      <ul>
-          <li>{{ shoe.getBrand }} || $ {{ shoe.getPrice }}</li>
-      </ul>
-          {% endfor %}
+        <p>Here are the brands we have:</p>
+        {% for shoe in shoes %}
+        <ul>
+            <li>{{ shoe.getBrand }} || $ {{ shoe.getPrice }}</li>
+        </ul>
+        {% endfor %}
       {% else %}
-        <p>There aren't any shoes yet! Maybe we need to target the Tupperware Party type of crowd...</p>
+          <p>There aren't any shoes yet! Maybe we need to target the Tupperware Party type of crowd...</p>
       {% endif %}
 
       <form action="/add_shoes" method="post">
-          <input id="store_id" type="hidden" name="store_id" value="{{ store.getId }}">
-          <label for="shoe_id">Add a shoe:</label>
-          <select id="shoe_id" name="shoe_id" type="text">
-          {% for shoe in all_shoes %}
-              <option value="{{ shoe.getId }}"> {{ shoe.getBrand }} </option>
-          {% endfor %}
-            </select>
-            <button type="submit">Submit!</button>
+        <input id="store_id" type="hidden" name="store_id" value="{{ store.getId }}">
+        <label for="shoe_id">Add a shoe:</label>
+        <select id="shoe_id" name="shoe_id" type="text">
+        {% for shoe in all_shoes %}
+          <option value="{{ shoe.getId }}"> {{ shoe.getBrand }} </option>
+        {% endfor %}
+        </select>
+        <button type="submit">Submit!</button>
       </form>
-
 
       <a href="/store/{{ store.getId }}/modify">Update {{ store.getStore }}</a>
 
       <div class="well">
-          <a href="/">Home</a> |||
-          <a href="/stores">Go to Stores</a> |||
-          <a href="/shoes">Go to shoes</a>
+        <a href="/">Home</a> |||
+        <a href="/stores">Go to Stores</a> |||
+        <a href="/shoes">Go to shoes</a>
       </div>
-
-
     </div>
   </body>
 </html>

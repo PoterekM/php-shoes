@@ -63,6 +63,12 @@
         return $app['twig']->render('modify_store.html.twig', array('store' => $store, 'shoes' => $store->getShoes(), 'all_shoes' => Shoe::getAll()));
     });
 
+    $app->delete("/store/{id}", function($id) use ($app) {
+        $store = Store::find($id);
+        $store->delete();
+        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
+    });
+
     $app->post("/add_shoes", function() use ($app) {
         $store = Store::find($_POST['store_id']);
         $shoe = Shoe::find($_POST['shoe_id']);

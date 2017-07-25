@@ -99,8 +99,8 @@
 
         function testDeleteAll()
         {
-            $brand = "Flippers";
-            $brand_2 = "Floppers";
+            $brand = "Oooh";
+            $brand_2 = "Kayyy";
             $price = "23";
             $price_2 = "32";
             $test_shoe = new Shoe($brand, $price);

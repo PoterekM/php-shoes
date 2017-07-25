@@ -22,7 +22,7 @@
       {% endif %}
 
       <form action="/add_stores" method="post">
-        <input id="shoe_id" name="shoe_id" type="hidden" value="{{ shoe.getId }}">
+        <input id="shoe_id" name="shoe_id" type="hidden" value="{{ shoe.getId }}" required>
         <label for="store_id">Select a store:</label>
         <select id="store_id" name="store_id" type="text">
           {% for store in all_stores %}

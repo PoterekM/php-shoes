@@ -4,7 +4,7 @@
     require_once __DIR__."/../src/Shoe.php";
     require_once __DIR__."/../src/Store.php";
 
-    $server = 'mysql:host=localhost:8889;dbname=shoe_store';
+    $server = 'mysql:host=localhost:8889;dbname=shoes';
     $username = 'root';
     $password = 'root';
     $DB = new PDO($server, $username, $password);

@@ -29,7 +29,7 @@ class Shoe
 
     function setPrice($new_price)
     {
-        $this->price = $new_price;
+        $this->price = money_format('%.2n', $new_price);
     }
 
     function getId()
@@ -131,5 +131,15 @@ class Shoe
         }
     }
 
+
+    function upperCase()
+    {
+        $input = strtolower($input);
+        $characters_to_split_on = array(' ', '#', '.', ',', '!', '', '?', ';', ':', '#', '()', '&');
+            foreach($characters_to_split_on as $space){
+                $input_string = str_replace($space," ",$input_string);
+            }
+            $split_input_string = explode(" ", $input_string);
+    }
 }
 ?>

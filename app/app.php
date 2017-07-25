@@ -33,6 +33,7 @@
 
     $app->post("/stores", function() use ($app) {
         $location = $_POST['store'];
+        $location = ucwords($location);
         $store = new Store($location);
         $store->save();
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));

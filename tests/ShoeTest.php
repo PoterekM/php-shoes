@@ -78,7 +78,6 @@
             $brand = "Kiks";
             $price = "78";
             $test_shoe = new Shoe($brand, $price);
-            $test_shoe->save();
             $executed = $test_shoe->save();
             $this->assertTrue($executed, "Brand not successfully saved to database");
         }

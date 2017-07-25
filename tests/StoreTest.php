@@ -52,9 +52,8 @@
 
         function testSave()
         {
-            $store = "Lolli doodle";
+            $store = "Lollip doodle";
             $test_store = new Store($store);
-            $test_store->save();
             $executed = $test_store->save();
             $this->assertTrue($executed, "Store not successfully saved to database");
         }
@@ -88,8 +87,8 @@
 
        function testFind()
         {
-            $store_name = "Boblob";
-            $store_name_2 = "Lobobo";
+            $store_name = "Bobloddkb";
+            $store_name_2 = "Lobodabo";
             $test_store = new Store($store_name);
             $test_store->save();
             $test_store_2 = new Store($store_name_2);
@@ -100,7 +99,7 @@
 
         function testAddShoe()
         {
-            $store = "Boblob";
+            $store = "Bokablob";
             $test_store = new Store($store);
             $test_store->save();
 
@@ -116,7 +115,7 @@
 
         function testGetShoes()
         {
-            $store = "Boblob";
+            $store = "Bobageeklob";
             $test_store = new Store($store);
             $test_store->save();
 

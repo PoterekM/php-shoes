@@ -55,7 +55,7 @@
         function testSetNumber()
         {
             $brand = "Bans";
-            $price = "39";
+            $price = "39.00";
             $test_shoe = new Shoe($brand, $price);
             $new_price = "Jo Boi Day";
             $test_shoe->setPrice($new_price);

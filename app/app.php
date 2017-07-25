@@ -83,7 +83,7 @@
         $brand = $_POST['brand'];
         $price = $_POST['price'];
         $price = money_format('%.2n', $price);
-        $shoe = new Shoe($brand, money_format('%.2n', $price));
+        $shoe = new Shoe($brand, $price);
         $shoe->save();
         return $app['twig']->render('shoes.html.twig', array('shoes' => Shoe::getAll(), 'shoe' => $shoe));
     });

@@ -82,7 +82,8 @@
     $app->post("/shoes", function() use ($app) {
         $brand = $_POST['brand'];
         $price = $_POST['price'];
-        $shoe = new Shoe($brand, $price);
+        $price = money_format('%.2n', $price);
+        $shoe = new Shoe($brand, money_format('%.2n', $price));
         $shoe->save();
         return $app['twig']->render('shoes.html.twig', array('shoes' => Shoe::getAll(), 'shoe' => $shoe));
     });
